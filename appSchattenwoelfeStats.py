@@ -24,9 +24,10 @@ csv_raw = StringIO(url.text)
 df = pd.read_csv(csv_raw, header=None)
 
 print(df)
+
 ##################################Get Active Member####################
 
-#df[8] = pd.to_datetime(df[7]).dt.dayofweek
+df[8] = pd.to_datetime(df[7]).dt.dayofweek
 
 df[7] = pd.to_datetime(df[7]).dt.date
 
