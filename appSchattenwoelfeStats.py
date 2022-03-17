@@ -23,7 +23,7 @@ url = requests.get('https://drive.google.com/u/1/uc?id=1--ev6pOsKEGUXvOCaWRSDnKN
 csv_raw = StringIO(url.text)
 df = pd.read_csv(csv_raw, header=None)
 
-
+print(df)
 ##################################Get Active Member####################
 
 #df[8] = pd.to_datetime(df[7]).dt.dayofweek
