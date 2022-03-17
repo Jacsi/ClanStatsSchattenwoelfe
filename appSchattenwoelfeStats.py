@@ -11,11 +11,13 @@ import numpy as np
 from datetime import timedelta
 import plotly.express as px
 import plotly.express as px
+import plotly
 
 import requests
 from io import StringIO
 
 import streamlit as st
+
 
 url = requests.get('https://drive.google.com/u/1/uc?id=1--ev6pOsKEGUXvOCaWRSDnKNv1WiTEan&export=download')
 csv_raw = StringIO(url.text)
