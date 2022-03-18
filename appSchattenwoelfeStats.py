@@ -31,7 +31,7 @@ df[3] = df[3].map(lambda x: x.replace('.', ''))
 df[3] = pd.to_numeric(df[3])
 
 gesamtxpClanperday = pd.DataFrame(df.groupby([7]).sum())
-gesamtxpClanperday[1] = "_DieSchattenwölfe"
+gesamtxpClanperday[1] = "000DieSchattenwölfe"
 gesamtxpClanperday[6] = max(df[6])
 gesamtxpClanperday[7] = max(df[7])
 
