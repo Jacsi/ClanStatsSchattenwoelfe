@@ -19,7 +19,7 @@ from io import StringIO
 import streamlit as st
 
 
-url = requests.get('https://www.dieschattenwoelfe.de/DailyClanStatsDieSchattenwoelfe.txt')
+url = requests.get('https://www.dieschattenwoelfe.de/Data/DailyClanStatsDieSchattenwoelfe.txt')
 csv_raw = StringIO(url.text)
 df = pd.read_csv(csv_raw, header=None)
 
