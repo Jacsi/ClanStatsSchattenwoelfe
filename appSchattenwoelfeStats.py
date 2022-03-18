@@ -59,8 +59,8 @@ else:
     
 enddatedefault = df[7].max()
 
-startdate = st.date_input("Start Date", value=startdatedefault)
-enddate = st.date_input("End Date", value = enddatedefault)
+startdate = st.date_input("Start Date", value=startdatedefault, min_value = df[7].min())
+enddate = st.date_input("End Date", value = enddatedefault, max_value = enddatedefault)
     
 dffilter = df[(df[7] >= startdate) & (df[7] <= enddate)] 
 
