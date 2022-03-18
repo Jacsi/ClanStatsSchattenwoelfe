@@ -18,7 +18,7 @@ from io import StringIO
 
 import streamlit as st
 
-
+clanname = "Die_Schattenwölfe"
 url = requests.get('https://www.dieschattenwoelfe.de/Data/DailyClanStatsDieSchattenwoelfe.txt')
 csv_raw = StringIO(url.text)
 df = pd.read_csv(csv_raw, header=None)
@@ -31,7 +31,7 @@ df[3] = df[3].map(lambda x: x.replace('.', ''))
 df[3] = pd.to_numeric(df[3])
 
 gesamtxpClanperday = pd.DataFrame(df.groupby([7]).sum())
-gesamtxpClanperday[1] = "DieSchattenwölfe"
+gesamtxpClanperday[1] = clanname
 gesamtxpClanperday[6] = gesamtxpClanperday.index.tolist()
 gesamtxpClanperday[7] = gesamtxpClanperday.index.tolist()
 
@@ -127,7 +127,7 @@ st.text("Im ausgewähltem Zeitraum wurden: " + str(xpbardiagramsum) + " XP gesam
 ###################################### END XP Calculation#################
 t = (dffilter[dffilter[7] == max(dffilter[7])][2])
 
-if (filtername != "DieSchattenwölfe"):
+if (filtername != clanname):
     if (t.item() ) :
            st.text("Derzeit hat " + filtername + " die Questteilnahme aktiviert!")
     else:
