@@ -79,65 +79,65 @@ startdate = st.date_input("Start Date", value=startdatedefault, min_value = df[7
 enddate = st.date_input("End Date", value = enddatedefault,min_value = df[7].min(), max_value = enddatedefault)
 
 if startdate >= enddate:
-    st.text("Das Startdatum muss vor dem Enddatum liegen=
+    st.text("Das Startdatum muss vor dem Enddatum liegen")
 else:
-    
-    dffilter = df[(df[7] >= startdate) & (df[7] <= enddate)] 
 
-    dffilter = dffilter[dffilter[1] == filtername]
+dffilter = df[(df[7] >= startdate) & (df[7] <= enddate)] 
 
-    xpbardiagram = np.diff(dffilter[3])
+dffilter = dffilter[dffilter[1] == filtername]
 
-    xpbardiagramsum = xpbardiagram.sum()
+xpbardiagram = np.diff(dffilter[3])
 
-    dffilter = dffilter[(dffilter[7] > startdate)]
+xpbardiagramsum = xpbardiagram.sum()
 
-    # initialize data of lists.
-    data = {'date':dffilter[7],
-            'xp':xpbardiagram}
+dffilter = dffilter[(dffilter[7] > startdate)]
 
-    # Creates pandas DataFrame.
-    dfbardiagram = pd.DataFrame(data) 
+# initialize data of lists.
+data = {'date':dffilter[7],
+        'xp':xpbardiagram}
 
-    fig = px.bar(dfbardiagram, x='date' , y='xp')
+# Creates pandas DataFrame.
+dfbardiagram = pd.DataFrame(data) 
 
-    st.plotly_chart(fig, use_container_width=False)
+fig = px.bar(dfbardiagram, x='date' , y='xp')
 
-    #print(xpbardiagram)
-    #print(dffilter[7])
+st.plotly_chart(fig, use_container_width=False)
 
-    st.text("Im ausgewähltem Zeitraum wurden: " + str(xpbardiagramsum) + " XP gesammelt.")
-    ###################Calculate Xp while Quest#########
+#print(xpbardiagram)
+#print(dffilter[7])
 
-
-
-    #dffiltername = df[df[1] == filtername]
-
-    #if (df[7].max()- week ) < (df[7].min()) :
-    #    startdatefilter = df[7].min()
-    #else:
-    #    enddatefilter = df[7].max() - week
-
-    #dffilterxpquest = dffiltername[(df[7] >= startdatefilter) & (dffiltername[7] <= enddatefilter)] 
-
-    #max(df[8]) =2 Bis hier müssen XP gesammelt werden
-
-    #max(df[8]) =3  ist der Erste Questtag vorbei
+st.text("Im ausgewähltem Zeitraum wurden: " + str(xpbardiagramsum) + " XP gesammelt.")
+###################Calculate Xp while Quest#########
 
 
-    ####################END XP Calc Quest################################
+
+#dffiltername = df[df[1] == filtername]
+
+#if (df[7].max()- week ) < (df[7].min()) :
+#    startdatefilter = df[7].min()
+#else:
+#    enddatefilter = df[7].max() - week
+
+#dffilterxpquest = dffiltername[(df[7] >= startdatefilter) & (dffiltername[7] <= enddatefilter)] 
+
+#max(df[8]) =2 Bis hier müssen XP gesammelt werden
+
+#max(df[8]) =3  ist der Erste Questtag vorbei
 
 
-    ###################################### END XP Calculation#################
-    t = (dffilter[dffilter[7] == max(dffilter[7])][2])
-
-    if (filtername != clanname):
-        if (t.item() ) :
-               st.text("Derzeit hat " + filtername + " die Questteilnahme aktiviert!")
-        else:
-              st.text("Derzeit nimmt " + filtername + " NICHT an Quests teil! \nBitte aktiviere den Questharken, wenn du teilnehmen möchtest.")
+####################END XP Calc Quest################################
 
 
-    st.text("Die letzte Aktualisierung der Daten erfolgte am: " + str(df[7].max()) + "\nIn der Regel werden die Daten um 18:30 Uhr aktualisiert.")
+###################################### END XP Calculation#################
+t = (dffilter[dffilter[7] == max(dffilter[7])][2])
+
+if (filtername != clanname):
+    if (t.item() ) :
+           st.text("Derzeit hat " + filtername + " die Questteilnahme aktiviert!")
+    else:
+          st.text("Derzeit nimmt " + filtername + " NICHT an Quests teil! \nBitte aktiviere den Questharken, wenn du teilnehmen möchtest.")
+
+
+st.text("Die letzte Aktualisierung der Daten erfolgte am: " + str(df[7].max()) + "\nIn der Regel werden die Daten um 18:30 Uhr aktualisiert.")
 
 
