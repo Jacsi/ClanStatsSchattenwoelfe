@@ -31,7 +31,7 @@ df[3] = df[3].map(lambda x: x.replace('.', ''))
 df[3] = pd.to_numeric(df[3])
 
 gesamtxpClanperday = pd.DataFrame(df.groupby([7]).sum())
-gesamtxpClanperday[1] = "000DieSchattenwölfe"
+gesamtxpClanperday[1] = "DieSchattenwölfe"
 gesamtxpClanperday[6] = gesamtxpClanperday.index.tolist()
 gesamtxpClanperday[7] = gesamtxpClanperday.index.tolist()
 
@@ -64,7 +64,7 @@ activemeber = np.array(lastday[1])
 
 st.title('Mitgliederstatistiken von Die_Schattenwoelfe')
 
-filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =0)
+filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =len(activemeber))
 
 week = timedelta(days=7)
 
