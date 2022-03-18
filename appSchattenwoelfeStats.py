@@ -127,7 +127,7 @@ st.text("Im ausgewähltem Zeitraum wurden: " + str(xpbardiagramsum) + " XP gesam
 ###################################### END XP Calculation#################
 t = (dffilter[dffilter[7] == max(dffilter[7])][2])
 
-if (t.item() ) :
+if (t.item() and (filtername != "DieSchattenwölfe")) :
        st.text("Derzeit hat " + filtername + " die Questteilnahme aktiviert!")
 else:
       st.text("Derzeit nimmt " + filtername + " NICHT an Quests teil! \nBitte aktiviere den Questharken, wenn du teilnehmen möchtest.")
