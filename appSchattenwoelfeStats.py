@@ -64,7 +64,7 @@ activemeber = np.array(lastday[1])
 
 st.title('Mitgliederstatistiken von Die_Schattenwoelfe')
 
-filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =len(activemeber))
+filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =len(activemeber)-1)
 
 week = timedelta(days=7)
 
