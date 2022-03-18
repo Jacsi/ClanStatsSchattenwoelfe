@@ -32,8 +32,8 @@ df[3] = pd.to_numeric(df[3])
 
 gesamtxpClanperday = pd.DataFrame(df.groupby([7]).sum())
 gesamtxpClanperday[1] = "000DieSchattenwölfe"
-gesamtxpClanperday[6] = max(df[6])
-gesamtxpClanperday[7] = max(df[7])
+gesamtxpClanperday[6] = pd.date_range(min(df[7]),max(df[7]) , freq="d").dt.date
+gesamtxpClanperday[7] = pd.date_range(min(df[7]),max(df[7]), freq="d").dt.date
 
 df = df.append(gesamtxpClanperday , ignore_index=True)
 
