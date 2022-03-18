@@ -25,7 +25,23 @@ df = pd.read_csv(csv_raw, header=None)
 
 print(df)
 
+
+df[3] = df[3].map(lambda x: x.replace('.', ''))
+
+df[3] = pd.to_numeric(df[3])
+
+gesamtxpClanperday = pd.DataFrame(df.groupby([7]).sum())
+gesamtxpClanperday[1] = "_DieSchattenwölfe"
+gesamtxpClanperday[6] = max(df[6])
+gesamtxpClanperday[7] = max(df[7])
+
+df = df.append(gesamtxpClanperday , ignore_index=True)
+
+
 ##################################Get Active Member####################
+
+gesamtxpClanperday = pd.DataFrame(df.groupby([7]).sum())
+
 
 df[8] = pd.to_datetime(df[7]).dt.dayofweek
 
@@ -42,13 +58,13 @@ activemeber = np.array(lastday[1])
 
 ################################## XP Calculation######################
 
-df[3] = df[3].map(lambda x: x.replace('.', ''))
+#df[3] = df[3].map(lambda x: x.replace('.', ''))
 
-df[3] = pd.to_numeric(df[3])
+#df[3] = pd.to_numeric(df[3])
 
 st.title('Mitgliederstatistiken von Die_Schattenwoelfe')
 
-filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =15)
+filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =0)
 
 week = timedelta(days=7)
 
