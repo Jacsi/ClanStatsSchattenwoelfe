@@ -2,7 +2,7 @@
 """
 Created on Thu Mar 17 16:27:55 2022
 
-@author: JSiet
+@author: Jacsi
 """
 
 import time
