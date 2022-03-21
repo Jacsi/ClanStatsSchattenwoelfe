@@ -78,12 +78,14 @@ enddatedefault = df[7].max()
 startdate = st.date_input("Start Date", value=startdatedefault, min_value = df[7].min(), max_value = enddatedefault)
 enddate = st.date_input("End Date", value = enddatedefault,min_value = df[7].min(), max_value = enddatedefault)
 
+dffilter = dffilter[dffilter[1] == filtername]
+
 if (startdate >= enddate):
     st.text("Das Startdatum muss vor dem Enddatum liegen")
 else:
-    dffilter = df[(df[7] >= startdate) & (df[7] <= enddate)] 
+    dffilter = dffilter[(dffilter[7] >= startdate) & (dffilter[7] <= enddate)] 
 
-    dffilter = dffilter[dffilter[1] == filtername]
+    
 
     xpbardiagram = np.diff(dffilter[3])
 
