@@ -66,16 +66,18 @@ st.title('Mitgliederstatistiken von Die_Schattenwoelfe')
 
 filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =len(activemeber)-1)
 
+dffilter = df[df[1] == filtername]
+
 week = timedelta(days=7)
 
-if (df[7].max()- week ) < (df[7].min()) :
-    startdatedefault = df[7].min()
+if (dffilter[7].max()- week ) < (dffilter[7].min()) :
+    startdatedefault = dffilter[7].min()
 else:
-    startdatedefault = df[7].max() - week
+    startdatedefault = dffilter[7].max() - week
     
-enddatedefault = df[7].max()
+enddatedefault = dffilter[7].max()
 
-dffilter = df[df[1] == filtername]
+
 
 startdate = st.date_input("Start Date", value=startdatedefault, min_value = dffilter[7].min(), max_value = enddatedefault)
 enddate = st.date_input("End Date", value = enddatedefault,min_value = dffilter[7].min(), max_value = enddatedefault)
