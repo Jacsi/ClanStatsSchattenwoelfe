@@ -99,7 +99,7 @@ else:
 
     # initialize data of lists.
     data = {'date':dffilter[7],
-            'xp':xpbardiagram[1]}
+            'xp':xpbardiagram}
 
     # Creates pandas DataFrame.
     dfbardiagram = pd.DataFrame(data) 
