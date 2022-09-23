@@ -159,7 +159,7 @@ else:
               st.text("Derzeit nimmt " + filtername + " NICHT an Quests teil! \nBitte aktiviere den Questharken, wenn du teilnehmen möchtest.")
                 
         if (anzahlNichtTeilgenommenerQuests > 2):
-            st.text("Die letzten 3 male hat " + filtername + " nicht an Clan Quests teilgenommen! \nBitte beachte, dass euch die Anführer ab unabgemeldeten 3 Quests kicken können!")
+            st.text("Die letzten " + anzahlNichtTeilgenommenerQuests +" male hat " + filtername + " nicht an Clan Quests teilgenommen! \nBitte beachte, dass euch die Anführer ab unabgemeldeten 3 Quests kicken können!")
 
 
 st.text("Die letzte Aktualisierung der Daten erfolgte am: " + str(df[7].max()) + "\nIn der Regel werden die Daten um 18:30 Uhr aktualisiert.")
