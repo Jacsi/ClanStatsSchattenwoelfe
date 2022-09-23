@@ -157,7 +157,7 @@ else:
                st.text("Derzeit hat " + filtername + " die Questteilnahme aktiviert!")
         else:
               st.text("Derzeit nimmt " + filtername + " NICHT an Quests teil! \nBitte aktiviere den Questharken, wenn du teilnehmen möchtest.")
-        if (anzahlNichtTeilgenommenerQuests > 2)
+        if (anzahlNichtTeilgenommenerQuests > 2):
             st.text("Die letzten" + anzahlNichtTeilgenommenerQuests + " male hat " + filtername + " nicht an Qlan Quests teilgenommen! \nBitte beachte, dass euch die Anführer ab unabgemeldeten 3 Quests kicken können!")
 
 
