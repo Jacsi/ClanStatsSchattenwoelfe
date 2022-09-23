@@ -68,6 +68,14 @@ filtername = st.selectbox( "Wähle ein Mitglied aus", activemeber, index =len(ac
 
 dffilter = df[df[1] == filtername]
 
+questteilnahmedf = dffilter[dffilter[8] == 2]
+anzahlNichtTeilgenommenerQuests = 0
+for questactivated in questteilnahmedf[2]:
+    if questactivated == 1:
+        anzahlNichtTeilgenommenerQuests = 0
+    else:
+        anzahlNichtTeilgenommenerQuests = anzahlNichtTeilgenommenerQuests+1
+
 week = timedelta(days=7)
 
 if (dffilter[7].max()- week ) < (dffilter[7].min()) :
@@ -149,6 +157,8 @@ else:
                st.text("Derzeit hat " + filtername + " die Questteilnahme aktiviert!")
         else:
               st.text("Derzeit nimmt " + filtername + " NICHT an Quests teil! \nBitte aktiviere den Questharken, wenn du teilnehmen möchtest.")
+        if (anzahlNichtTeilgenommenerQuests > 2)
+            st.text("Die letzten" + anzahlNichtTeilgenommenerQuests + " male hat " + filtername + " nicht an Qlan Quests teilgenommen! \nBitte beachte, dass euch die Anführer ab unabgemeldeten 3 Quests kicken können!")
 
 
 st.text("Die letzte Aktualisierung der Daten erfolgte am: " + str(df[7].max()) + "\nIn der Regel werden die Daten um 18:30 Uhr aktualisiert.")
