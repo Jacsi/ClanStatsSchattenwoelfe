@@ -90,8 +90,16 @@ else:
     dffilter = dffilter[(dffilter[7] >= startdate) & (dffilter[7] <= enddate)] 
 
     
-
+       
     xpbardiagram = np.diff(dffilter[3])
+    
+    #set values smaller than 0 to 0
+    counterbd = 0
+    for xyz in xpbardiagram:
+        if xyz < 0:
+            xyz = 0
+            xpbardiagram[counterbd] = xyz
+        counterbd = counterbd+1
 
     xpbardiagramsum = xpbardiagram.sum()
 
