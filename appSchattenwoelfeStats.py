@@ -19,7 +19,7 @@ from io import StringIO
 import streamlit as st
 
 clanname = "Die_Schattenwölfe"
-url = requests.get('https://www.dieschattenwoelfe.de/Data/DailyClanStatsDieSchattenwoelfe.txt')
+url = requests.get('https://www.dieschattenwoelfe.de/Data/DailyClanStatsDieSchattenwoelfe_2.txt')
 csv_raw = StringIO(url.text)
 df = pd.read_csv(csv_raw, header=None)
 
